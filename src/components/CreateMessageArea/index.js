@@ -1,3 +1,7 @@
+import { connect } from 'react-redux';
 import CreateMessageArea from './CreateMessageArea';
 
-export default CreateMessageArea;
+const mapStateToProps = ({ user }) => ({ user });
+
+export default connect(mapStateToProps)(CreateMessageArea);
+
