@@ -1,8 +1,15 @@
 import io from 'socket.io-client';
 import { eventChannel } from 'redux-saga';
-import { put, call, take } from 'redux-saga/effects';
+import {
+  put,
+  call,
+  take,
+  takeEvery,
+  select,
+} from 'redux-saga/effects';
 import config from '../../config';
-import actions from './actions';
+import actions, { actionTypes } from './actions';
+import messagesActions from '../messages/actions';
 
 const socket = io(config.IO_ENDPOINT);
 
@@ -12,8 +19,8 @@ function initSocket() {
       emitter(actions.connected());
     });
 
-    socket.on(config.IO_CHAT_EVENT, (data) => {
-      console.log(data);
+    socket.on(config.IO_CHAT_EVENT, (message) => {
+      emitter(messagesActions.pushMessage(message));
     });
 
     socket.on('disconnect', () => {
@@ -24,9 +31,20 @@ function initSocket() {
   });
 }
 
+function* sendMessage({ payload }) {
+  const user = yield select(state => state.user);
+
+  socket.emit(config.IO_CHAT_EVENT, {
+    avatar: user.avatar,
+    username: user.name,
+    message: payload,
+  });
+}
+
 export default function* remoteMiddleware() {
   const channel = yield call(initSocket);
 
+  yield takeEvery(actionTypes.SEND_MESSAGE, sendMessage);
   while (true) {
     const action = yield take(channel);
     yield put(action);
