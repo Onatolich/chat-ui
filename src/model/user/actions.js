@@ -1,6 +1,7 @@
 import utils from '../../utils';
 
 const actionNames = [
+  'RESET',
   'SET_USER_NAME',
 ];
 
