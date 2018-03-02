@@ -26,6 +26,6 @@ export default function remote(state = initialState, action) {
     default:
       return state;
   }
-};
+}
 
 remote.actions = actions;

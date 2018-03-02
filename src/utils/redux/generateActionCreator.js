@@ -3,5 +3,5 @@
  * which accepts single optional argument which will be exposed as payload attr of action
  */
 export default function generateActionCreator(type) {
-  return (payload) => ({ type, payload })
+  return payload => ({ type, payload });
 }

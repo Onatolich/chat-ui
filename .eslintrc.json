@@ -28,8 +28,7 @@
       "imports": "always-multiline",
       "exports": "always-multiline",
       "functions": "ignore"
-    }],
-    "arrow-parens": ["error", "always"]
+    }]
   },
   "plugins": [
     "react",

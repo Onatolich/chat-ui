@@ -1,3 +1,1 @@
-export default function* userSagas() {
-
-}
+export default function* userSagas() {}
