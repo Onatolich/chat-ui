@@ -1,25 +1,23 @@
 import io from 'socket.io-client';
 import { eventChannel } from 'redux-saga';
 import { put, call, take } from 'redux-saga/effects';
+import config from '../../config';
 import actions from './actions';
+
+const socket = io(config.IO_ENDPOINT);
 
 function initSocket() {
   return eventChannel((emitter) => {
-    // TODO: make it configurable
-    // const socket = io('https://spotim-demo-chat-server.herokuapp.com');
-    const socket = io('http://localhost');
-
     socket.on('connect', () => {
-      yield put(actions.connected());
+      emitter(actions.connected());
     });
 
-    socket.on('event', (data) => {
+    socket.on(config.IO_CHAT_EVENT, (data) => {
       console.log(data);
-      // TODO
     });
 
     socket.on('disconnect', () => {
-      yield put(actions.disconnected());
+      emitter(actions.disconnected());
     });
 
     return () => {};

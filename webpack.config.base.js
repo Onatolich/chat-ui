@@ -27,6 +27,10 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.EnvironmentPlugin({
+      IO_ENDPOINT: 'https://spotim-demo-chat-server.herokuapp.com',
+      IO_CHAT_EVENT: 'spotim/chat',
+    }),
     new ExtractTextPlugin('[md5:contenthash:hex:20].styles.css'),
     new HtmlWebpackPlugin({
       template: 'index.htm',
