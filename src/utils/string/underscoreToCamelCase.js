@@ -6,5 +6,5 @@ import uncapitalize from './uncapitalize';
  * @example underscoreToCamelCase('test_string') -> 'testString'
  */
 export default function underscoreToCamelCase(str) {
-  return uncapitalize(str.split('_').map(capitalize).join(''));
+  return uncapitalize(str.toLowerCase().split('_').map(capitalize).join(''));
 }
