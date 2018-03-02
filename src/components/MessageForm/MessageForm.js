@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import SendIcon from 'material-ui/svg-icons/content/send';
-import S from 'material-ui/';
 
 import './MessageForm.scss';
 
@@ -39,10 +39,8 @@ export default class MessageForm extends React.PureComponent {
   }
 
   submit() {
-    console.log(this.state.message);
-    this.setState({
-      message: '',
-    });
+    this.props.sendMessage(this.state.message);
+    this.setState({ message: '' });
   }
 
   render() {
@@ -78,3 +76,7 @@ export default class MessageForm extends React.PureComponent {
     );
   }
 }
+
+MessageForm.propTypes = {
+  sendMessage: PropTypes.func.isRequired,
+};
