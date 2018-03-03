@@ -10,3 +10,8 @@ type MessageT = {
 };
 
 type MessagesListT = Array<MessageT>;
+
+type ActionT = {
+  type: string,
+  payload: any,
+};

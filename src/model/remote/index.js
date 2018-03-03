@@ -1,4 +1,9 @@
+/* @flow */
 import actions, { actionTypes } from './actions';
+
+type State = {
+  connected: boolean,
+};
 
 const {
   CONNECTED,
@@ -9,7 +14,7 @@ const initialState = {
   connected: false,
 };
 
-export default function remote(state = initialState, action) {
+export default function remote(state: State = initialState, action: ActionT): State {
   switch (action.type) {
     case CONNECTED:
       return {

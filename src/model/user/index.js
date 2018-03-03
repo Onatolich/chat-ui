@@ -1,4 +1,7 @@
+/* @flow */
 import actions, { actionTypes } from './actions';
+
+type State = UserT;
 
 const {
   SET_USER_NAME,
@@ -10,7 +13,7 @@ const initialState = {
   name: '',
 };
 
-export default function userReducer(state = initialState, action) {
+export default function userReducer(state: State = initialState, action: ActionT): State {
   switch (action.type) {
     case RESET:
       return {

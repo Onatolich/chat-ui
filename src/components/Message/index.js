@@ -1,7 +1,11 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 
-export default function Message(props) {
+type Props = MessageT & {
+  isOwn: boolean,
+};
+
+export default function Message(props: Props) {
   const {
     avatar,
     username,
@@ -20,10 +24,3 @@ export default function Message(props) {
     </div>
   );
 }
-
-Message.propTypes = {
-  avatar: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
-  isOwn: PropTypes.bool,
-};

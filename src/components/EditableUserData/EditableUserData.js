@@ -1,19 +1,23 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 import Avatar from 'material-ui/Avatar';
 import TextField from 'material-ui/TextField';
-
 import './EditableUserData.scss';
 
-export default class EditableUserData extends React.PureComponent {
-  constructor(props) {
+type Props = {
+  user: UserT,
+  onUserNameChange: (name: string) => void,
+};
+
+export default class EditableUserData extends React.PureComponent<Props> {
+  constructor(props: Props) {
     super(props);
 
-    this.onUserNameChange = this.onUserNameChange.bind(this);
+    (this: any).onUserNameChange = this.onUserNameChange.bind(this);
   }
 
-  onUserNameChange(e) {
-    this.props.onUserNameChange(e.target.value);
+  onUserNameChange(e: SyntheticEvent<HTMLInputElement>) {
+    this.props.onUserNameChange(e.currentTarget.value);
   }
 
   render() {
@@ -36,11 +40,3 @@ export default class EditableUserData extends React.PureComponent {
     );
   }
 }
-
-EditableUserData.propTypes = {
-  user: PropTypes.shape({
-    avatar: PropTypes.string,
-    name: PropTypes.string,
-  }),
-  onUserNameChange: PropTypes.func.isRequired,
-};

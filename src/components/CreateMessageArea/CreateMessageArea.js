@@ -1,10 +1,14 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 import EditableUserData from '../EditableUserData';
 import MessageForm from '../MessageForm';
 import './CreateMessageArea.scss';
 
-export default function CreateMessageArea({ user }) {
+type Props = {
+  user: UserT,
+};
+
+export default function CreateMessageArea({ user }: Props) {
   return (
     <div className="CreateMessageArea">
       <div className="CreateMessageArea__Content">
@@ -14,10 +18,3 @@ export default function CreateMessageArea({ user }) {
     </div>
   );
 }
-
-CreateMessageArea.propTypes = {
-  user: PropTypes.shape({
-    avatar: PropTypes.string,
-    name: PropTypes.string,
-  }),
-};

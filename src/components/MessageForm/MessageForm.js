@@ -1,31 +1,41 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import SendIcon from 'material-ui/svg-icons/content/send';
 
 import './MessageForm.scss';
 
-export default class MessageForm extends React.PureComponent {
-  constructor(props) {
+type Props = {
+  sendMessage: (message: string) => void,
+};
+
+type State = {
+  message: string,
+};
+
+export default class MessageForm extends React.PureComponent<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
       message: '',
     };
 
-    this.onChange = this.onChange.bind(this);
-    this.onKeyUp = this.onKeyUp.bind(this);
-    this.onSubmitButtonClick = this.onSubmitButtonClick.bind(this);
+    const self = (this: any);
+
+    self.onChange = this.onChange.bind(this);
+    self.onKeyUp = this.onKeyUp.bind(this);
+    self.onSubmitButtonClick = this.onSubmitButtonClick.bind(this);
   }
 
-  onChange(e) {
+  onChange(e: SyntheticEvent<HTMLInputElement>) {
     this.setState({
-      message: e.target.value,
+      message: e.currentTarget.value,
     });
   }
 
-  onKeyUp(e) {
+  onKeyUp(e: Event) {
     if (!e.ctrlKey || e.key !== 'Enter') {
       return;
     }
@@ -33,7 +43,7 @@ export default class MessageForm extends React.PureComponent {
     this.submit();
   }
 
-  onSubmitButtonClick(e) {
+  onSubmitButtonClick(e: Event) {
     e.preventDefault();
     this.submit();
   }
@@ -81,7 +91,3 @@ export default class MessageForm extends React.PureComponent {
     );
   }
 }
-
-MessageForm.propTypes = {
-  sendMessage: PropTypes.func.isRequired,
-};

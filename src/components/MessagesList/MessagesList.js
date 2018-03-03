@@ -1,10 +1,15 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
 import Message from '../Message';
 import './MessagesList.scss';
 
-export default class MessagesList extends React.PureComponent {
-  isOwnMessage(message) {
+type Props = {
+  user: UserT,
+  messages: MessagesListT,
+};
+
+export default class MessagesList extends React.PureComponent<Props> {
+  isOwnMessage(message: MessageT): boolean {
     const { user } = this.props;
     return message.username === user.name && message.avatar === user.avatar;
   }
@@ -30,17 +35,3 @@ export default class MessagesList extends React.PureComponent {
     );
   }
 }
-
-MessagesList.propTypes = {
-  user: PropTypes.shape({
-    avatar: PropTypes.string,
-    name: PropTypes.string,
-  }),
-  messages: PropTypes.arrayOf(
-    PropTypes.shape({
-      avatar: PropTypes.string,
-      username: PropTypes.string,
-      message: PropTypes.string,
-    })
-  ),
-};
