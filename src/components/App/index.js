@@ -4,6 +4,7 @@ import Paper from 'material-ui/Paper';
 import Header from '../Header';
 import MessagesList from '../MessagesList';
 import CreateMessageArea from '../CreateMessageArea';
+import NoConnection from '../NoConnection';
 import './App.scss';
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
           <Header />
           <MessagesList />
           <CreateMessageArea />
+          <NoConnection />
         </Paper>
       </div>
     </MuiThemeProvider>

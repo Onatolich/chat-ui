@@ -6,7 +6,7 @@ export default function Header() {
   const title = (
     <div className="Header__Title">
       <span className="Header__Logo" />
-      Spot.im chat
+      Chat UI
     </div>
   );
 
