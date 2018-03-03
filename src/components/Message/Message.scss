@@ -12,12 +12,14 @@ $avatar-buffer: 50px;
 
     .Message__UserName {
       font-size: 12px;
+      margin-left: 5px;
       color: #999;
     }
 
     .Message__Text {
       padding: 20px;
       background: #eee;
+      border-radius: 10px 10px 10px 0;
     }
 
     .Message__Avatar {
@@ -37,6 +39,7 @@ $avatar-buffer: 50px;
       .Message__Text {
         background: #26c6da;
         color: #fff;
+        border-radius: 10px 10px 0;
       }
 
       .Message__Avatar {
