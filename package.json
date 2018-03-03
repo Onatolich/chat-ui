@@ -45,7 +45,7 @@
     "jest": "^22.4.2",
     "node-sass": "^4.5.3",
     "node-storage-shim": "^1.0.1",
-    "react-test-renderer": "^16.2.0",
+    "react-test-renderer": "^15.6.1",
     "redux-saga-tester": "^1.0.379",
     "resolve-url-loader": "^2.2.1",
     "sass-loader": "^6.0.6",
@@ -79,7 +79,7 @@
       "[/\\\\]node_modules[/\\\\].+\\.js$"
     ],
     "moduleNameMapper": {
-      "^.+\\.css$": "identity-obj-proxy"
+      "^.+\\.scss$": "identity-obj-proxy"
     }
   }
 }
