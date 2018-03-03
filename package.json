@@ -29,6 +29,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "css-loader": "^0.28.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-15": "^1.0.5",
     "eslint": "^4.2.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-babel": "^4.1.1",
@@ -56,7 +58,10 @@
       "!src/redux/*.js",
       "!src/components/**/index.js"
     ],
-    "setupFiles": ["babel-polyfill"],
+    "setupFiles": [
+      "babel-polyfill"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](build|node_modules)[/\\\\]"
     ],
