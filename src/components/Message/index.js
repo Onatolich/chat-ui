@@ -28,7 +28,9 @@ export default function Message(props: Props) {
         </div>
 
         <div className="Message__Text">
-          {message}
+          {message.split('\n').map((line, index) => (
+            <div key={index}>{line}</div>
+          ))}
         </div>
 
         <Avatar

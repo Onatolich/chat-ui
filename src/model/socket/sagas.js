@@ -19,8 +19,8 @@ function initSocket() {
       emitter(actions.connected());
     });
 
-    socket.on(config.IO_CHAT_EVENT, (message) => {
-      emitter(messagesActions.pushMessage(message));
+    socket.on(config.IO_CHAT_EVENT, (payload) => {
+      emitter(messagesActions.pushMessage(payload));
     });
 
     socket.on('disconnect', () => {
