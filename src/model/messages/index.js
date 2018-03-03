@@ -6,7 +6,7 @@ const {
 
 export default function messagesReducer(state = [], action) {
   switch (action.type) {
-    case 'PUSH_MESSAGE':
+    case PUSH_MESSAGE:
       return [
         ...state,
         action.payload,
