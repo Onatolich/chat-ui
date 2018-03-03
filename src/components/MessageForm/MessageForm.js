@@ -39,7 +39,12 @@ export default class MessageForm extends React.PureComponent {
   }
 
   submit() {
-    this.props.sendMessage(this.state.message);
+    const { message } = this.state;
+    if (!message.length) {
+      return;
+    }
+
+    this.props.sendMessage(message);
     this.setState({ message: '' });
   }
 
