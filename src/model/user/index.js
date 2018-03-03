@@ -32,3 +32,4 @@ export default function userReducer(state: State = initialState, action: ActionT
 }
 
 userReducer.actions = actions;
+userReducer.actionTypes = actionTypes;

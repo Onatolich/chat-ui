@@ -1,6 +1,7 @@
 import utils from '../../utils';
 
 const actionNames = [
+  'INITIALIZED',
   'CONNECTED',
   'SEND_MESSAGE',
   'DISCONNECTED',

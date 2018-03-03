@@ -21,3 +21,4 @@ export default function messagesReducer(state: State = [], action: ActionT): Sta
 }
 
 messagesReducer.actions = actions;
+messagesReducer.actionTypes = actionTypes;

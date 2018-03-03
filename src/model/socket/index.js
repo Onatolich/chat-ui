@@ -14,7 +14,7 @@ const initialState = {
   connected: false,
 };
 
-export default function socket(state: State = initialState, action: ActionT): State {
+export default function socketReducer(state: State = initialState, action: ActionT): State {
   switch (action.type) {
     case CONNECTED:
       return {
@@ -33,4 +33,5 @@ export default function socket(state: State = initialState, action: ActionT): St
   }
 }
 
-socket.actions = actions;
+socketReducer.actions = actions;
+socketReducer.actionTypes = actionTypes;

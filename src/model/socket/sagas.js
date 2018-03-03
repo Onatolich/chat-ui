@@ -11,9 +11,11 @@ import config from '../../config';
 import actions, { actionTypes } from './actions';
 import messagesActions from '../messages/actions';
 
-const socket = io(config.IO_ENDPOINT);
+let socket;
 
-function initSocket() {
+function createSocketChannel() {
+  socket = io.connect(config.IO_ENDPOINT);
+
   return eventChannel((emitter) => {
     socket.on('connect', () => {
       emitter(actions.connected());
@@ -46,7 +48,8 @@ function* sendMessage({ payload }) {
 }
 
 export default function* socketSagas() {
-  const channel = yield call(initSocket);
+  const channel = yield call(createSocketChannel);
+  yield put(actions.initialized());
 
   yield takeEvery(actionTypes.SEND_MESSAGE, sendMessage);
   while (true) {
