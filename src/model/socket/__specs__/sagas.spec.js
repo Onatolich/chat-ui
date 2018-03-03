@@ -6,10 +6,10 @@ import actions, { actionTypes } from '../actions';
 import messages from '../../messages';
 import sagas from '../sagas';
 
+const connectBuffer = io.connect;
 let state;
 let sagaTester;
 let socket;
-let connectBuffer = io.connect;
 
 beforeEach(async () => {
   socket = new SocketMock();

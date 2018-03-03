@@ -27,5 +27,5 @@ test('should reset state with passed payload on RESET action', () => {
 
 test('should update user name on SET_USER_NAME action', () => {
   const name = 'next-name';
-  expect(reducer(state, actions.setUserName(name))).toEqual({...state, name});
+  expect(reducer(state, actions.setUserName(name))).toEqual({ ...state, name });
 });

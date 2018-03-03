@@ -69,7 +69,7 @@ describe('componentDidUpdate method', () => {
   test('should perform scrollToEnd method if amount of messages changed', () => {
     instance.componentDidUpdate({
       ...props,
-      messages: [...props.messages, {}]
+      messages: [...props.messages, {}],
     });
     expect(instance.scrollToEnd).toHaveBeenCalled();
   });
