@@ -17,7 +17,10 @@ type ProcessedActionsT = {
  * actionTypes: list of namespaced action types
  * actions: action creators for each type
  */
-export default function actionsPreprocessor(namespace: string, names: Array<string>): ProcessedActionsT {
+export default function actionsPreprocessor(
+  namespace: string,
+  names: Array<string>
+): ProcessedActionsT {
   const actionTypes = namespaceActions(namespace, names);
   const actions = names.reduce((acc, name) => {
     acc[underscoreToCamelCase(name)] = generateActionCreator(actionTypes[name]);
