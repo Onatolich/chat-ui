@@ -5,12 +5,12 @@
   "scripts": {
     "index-components": "node ./scripts/indexComponents.js",
     "start": "webpack-dev-server --inline --hot --open --config webpack.config.dev.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "flow": "flow status --show-all-errors"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "material-ui": "^0.20.0",
-    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
@@ -29,10 +29,12 @@
     "eslint": "^4.2.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-flowtype": "^2.46.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "^2.1.2",
+    "flow-bin": "^0.66.0",
     "html-webpack-plugin": "^2.29.0",
     "node-sass": "^4.5.3",
     "resolve-url-loader": "^2.2.1",

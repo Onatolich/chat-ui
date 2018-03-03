@@ -1,0 +1,12 @@
+[ignore]
+
+[include]
+
+[libs]
+flow/globals.js
+
+[lints]
+
+[options]
+module.name_mapper='.*\.scss$' -> '<PROJECT_ROOT>/flow/CSSModuleStub.js'
+esproposal.decorators=ignore
