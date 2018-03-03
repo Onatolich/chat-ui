@@ -48,13 +48,16 @@ export default class MessageForm extends React.PureComponent<Props, State> {
     this.submit();
   }
 
+  isAbleToSend(): boolean {
+    return !!this.state.message.trim().length;
+  }
+
   submit() {
-    const { message } = this.state;
-    if (!message.length) {
+    if (!this.isAbleToSend()) {
       return;
     }
 
-    this.props.sendMessage(message);
+    this.props.sendMessage(this.state.message);
     this.setState({ message: '' });
   }
 
@@ -77,7 +80,7 @@ export default class MessageForm extends React.PureComponent<Props, State> {
           <FloatingActionButton
             className="MessageForm__SendButton"
             onClick={this.onSubmitButtonClick}
-            disabled={!message.length}
+            disabled={!this.isAbleToSend()}
             mini
           >
             <SendIcon />

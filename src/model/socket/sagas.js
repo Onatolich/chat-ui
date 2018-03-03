@@ -20,6 +20,10 @@ function initSocket() {
     });
 
     socket.on(config.IO_CHAT_EVENT, (payload) => {
+      if (!payload || !payload.message) {
+        return;
+      }
+
       emitter(messagesActions.pushMessage(payload));
     });
 
