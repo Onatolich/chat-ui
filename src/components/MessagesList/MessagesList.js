@@ -8,7 +8,28 @@ type Props = {
   messages: MessagesListT,
 };
 
-export default class MessagesList extends React.PureComponent<Props> {
+type State = {
+  stick: boolean,
+};
+
+export default class MessagesList extends React.PureComponent<Props, State> {
+  root: HTMLElement;
+  content: HTMLElement;
+
+  componentDidMount() {
+    this.scrollToEnd();
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.messages.length !== this.props.messages.length) {
+      this.scrollToEnd();
+    }
+  }
+
+  scrollToEnd() {
+    this.root.scrollTop = this.content.clientHeight;
+  }
+
   isOwnMessage(message: MessageT): boolean {
     const { user } = this.props;
     return message.username === user.name && message.avatar === user.avatar;
@@ -22,15 +43,32 @@ export default class MessagesList extends React.PureComponent<Props> {
   }
 
   renderMessagesList() {
-    return this.getMessages().map((message, key) => (
+    const messages = this.getMessages();
+    if (!messages.length) {
+      return (
+        <div className="MessagesList_NoMessages">
+          There is no messages yet. Go ahead - say something!
+        </div>
+      );
+    }
+
+    return messages.map((message, key) => (
       <Message {...message} key={key} />
     ));
   }
 
   render() {
     return (
-      <div className="MessagesList">
-        {this.renderMessagesList()}
+      <div
+        className="MessagesList"
+        ref={(root) => { (this: any).root = root; }}
+      >
+        <div
+          className="MessagesList__Content"
+          ref={(content) => { (this: any).content = content; }}
+        >
+          {this.renderMessagesList()}
+        </div>
       </div>
     );
   }
