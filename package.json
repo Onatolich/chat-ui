@@ -6,7 +6,9 @@
     "index-components": "node ./scripts/indexComponents.js",
     "start": "webpack-dev-server --inline --hot --open --config webpack.config.dev.js",
     "lint": "eslint .",
-    "flow": "flow status --show-all-errors"
+    "flow": "flow status --show-all-errors",
+    "test": "jest --env=jsdom --maxWorkers=4",
+    "coverage": "npm run test -- --coverage"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
@@ -37,11 +39,36 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "flow-bin": "^0.66.0",
     "html-webpack-plugin": "^2.29.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.4.2",
     "node-sass": "^4.5.3",
     "resolve-url-loader": "^2.2.1",
     "sass-loader": "^6.0.6",
     "url-loader": "^0.5.9",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1"
+  },
+  "jest": {
+    "testRegex": ".*spec\\.js$",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/*.js",
+      "!src/redux/*.js",
+      "!src/components/**/index.js"
+    ],
+    "setupFiles": ["babel-polyfill"],
+    "testPathIgnorePatterns": [
+      "<rootDir>[/\\\\](build|node_modules)[/\\\\]"
+    ],
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.js$"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.css$": "identity-obj-proxy"
+    }
   }
 }
