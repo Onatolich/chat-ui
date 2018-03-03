@@ -15,7 +15,7 @@ export default class MessagesList extends React.PureComponent<Props> {
   }
 
   getMessages() {
-    return this.props.messages.map((message) => ({
+    return this.props.messages.map(message => ({
       ...message,
       isOwn: this.isOwnMessage(message),
     }));

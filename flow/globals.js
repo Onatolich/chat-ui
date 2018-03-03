@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 type UserT = {
   avatar: string,
   name: string,

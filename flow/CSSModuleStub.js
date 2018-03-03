@@ -1,3 +1,3 @@
-type CSSModule = {};
+type CssModuleT = {};
 
-export default CSSModule;
+export default CssModuleT;
