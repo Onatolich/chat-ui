@@ -46,7 +46,7 @@ export default class MessagesList extends React.PureComponent<Props, State> {
     const messages = this.getMessages();
     if (!messages.length) {
       return (
-        <div className="MessagesList_NoMessages">
+        <div className="MessagesList__NoMessages">
           There is no messages yet. Go ahead - say something!
         </div>
       );
