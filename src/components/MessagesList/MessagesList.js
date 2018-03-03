@@ -27,6 +27,10 @@ export default class MessagesList extends React.PureComponent<Props, State> {
   }
 
   scrollToEnd() {
+    if (!this.root || !this.content) {
+      return;
+    }
+
     this.root.scrollTop = this.content.clientHeight;
   }
 
