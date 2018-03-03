@@ -17,3 +17,5 @@ type ActionT = {
   type: string,
   payload: any,
 };
+
+type ActionCreatorT = (payload: any) => ActionT;
