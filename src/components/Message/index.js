@@ -1,5 +1,7 @@
 /* @flow */
 import React from 'react';
+import Avatar from 'material-ui/Avatar';
+import './Message.scss';
 
 type Props = MessageT & {
   isOwn: boolean,
@@ -20,7 +22,20 @@ export default function Message(props: Props) {
 
   return (
     <div className={classNames.join(' ')}>
-      {message}
+      <div className="Message__Content">
+        <div className="Message__UserName">
+          {username}
+        </div>
+
+        <div className="Message__Text">
+          {message}
+        </div>
+
+        <Avatar
+          className="Message__Avatar"
+          src={avatar}
+        />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,48 @@
+$avatar-buffer: 50px;
+
+.Message {
+  display: flex;
+  margin-bottom: 40px;
+
+  .Message__Content {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    padding-left: $avatar-buffer;
+
+    .Message__UserName {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .Message__Text {
+      padding: 20px;
+      background: #eee;
+    }
+
+    .Message__Avatar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &.Message--own {
+    justify-content: flex-end;
+
+    .Message__Content {
+      padding-left: 0;
+      padding-right: $avatar-buffer;
+
+      .Message__Text {
+        background: #26c6da;
+        color: #fff;
+      }
+
+      .Message__Avatar {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+}
