@@ -1,3 +1,4 @@
+/* @flow */
 const AVATARS_ROOT = 'https://spotim-demo-chat-server.herokuapp.com/avatars/';
 
 const avatars = [
@@ -9,11 +10,11 @@ const avatars = [
 ].map(avatar => `${AVATARS_ROOT}${avatar}`);
 
 export default {
-  getAll() {
+  getAll(): Array<string> {
     return avatars;
   },
 
-  getRandom() {
+  getRandom(): string {
     return avatars[Math.floor(Math.random() * avatars.length)];
   },
 };

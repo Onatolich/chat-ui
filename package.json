@@ -44,6 +44,8 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.2",
     "node-sass": "^4.5.3",
+    "node-storage-shim": "^1.0.1",
+    "react-test-renderer": "^16.2.0",
     "resolve-url-loader": "^2.2.1",
     "sass-loader": "^6.0.6",
     "url-loader": "^0.5.9",
@@ -56,7 +58,9 @@
       "src/**/*.js",
       "!src/*.js",
       "!src/redux/*.js",
-      "!src/components/**/index.js"
+      "!src/components/**/index.js",
+      "!src/utils/index.js",
+      "!src/utils/**/index.js"
     ],
     "setupFiles": [
       "babel-polyfill"

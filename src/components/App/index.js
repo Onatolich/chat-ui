@@ -1,23 +1,3 @@
-import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Paper from 'material-ui/Paper';
-import Header from '../Header';
-import MessagesList from '../MessagesList';
-import CreateMessageArea from '../CreateMessageArea';
-import NoConnection from '../NoConnection';
-import './App.scss';
+import App from './App';
 
-export default function App() {
-  return (
-    <MuiThemeProvider>
-      <div className="App">
-        <Paper className="App__Container">
-          <Header />
-          <MessagesList />
-          <CreateMessageArea />
-          <NoConnection />
-        </Paper>
-      </div>
-    </MuiThemeProvider>
-  );
-}
+export default App;
