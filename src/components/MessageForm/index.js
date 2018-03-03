@@ -6,7 +6,7 @@ import MessageForm from './MessageForm';
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  sendMessage: model.remote.actions.sendMessage,
+  sendMessage: model.socket.actions.sendMessage,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);

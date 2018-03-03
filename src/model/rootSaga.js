@@ -1,10 +1,10 @@
 import { all, fork } from 'redux-saga/effects';
-import remote from './remote/sagas';
+import socket from './socket/sagas';
 import user from './user/sagas';
 
 export default function* rootSaga() {
   yield all([
-    remote,
+    socket,
     user,
   ].map(saga => fork(saga)));
 }

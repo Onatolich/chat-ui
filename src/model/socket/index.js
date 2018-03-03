@@ -14,7 +14,7 @@ const initialState = {
   connected: false,
 };
 
-export default function remote(state: State = initialState, action: ActionT): State {
+export default function socket(state: State = initialState, action: ActionT): State {
   switch (action.type) {
     case CONNECTED:
       return {
@@ -33,4 +33,4 @@ export default function remote(state: State = initialState, action: ActionT): St
   }
 }
 
-remote.actions = actions;
+socket.actions = actions;

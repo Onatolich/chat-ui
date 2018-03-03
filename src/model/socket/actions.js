@@ -6,7 +6,7 @@ const actionNames = [
   'DISCONNECTED',
 ];
 
-const { actions, actionTypes } = utils.redux.actionsPreprocessor('remote', actionNames);
+const { actions, actionTypes } = utils.redux.actionsPreprocessor('socket', actionNames);
 
 export default actions;
 export { actionTypes };

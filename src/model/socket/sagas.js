@@ -41,7 +41,7 @@ function* sendMessage({ payload }) {
   });
 }
 
-export default function* remoteMiddleware() {
+export default function* socketSagas() {
   const channel = yield call(initSocket);
 
   yield takeEvery(actionTypes.SEND_MESSAGE, sendMessage);
