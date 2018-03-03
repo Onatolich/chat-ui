@@ -1,6 +1,6 @@
 const storage = global.localStorage;
 
-export default {
+const StorageService = {
   /**
    * Returns parsed value by key
    * if there is no such key in storage - returns undefined instead of null (storage API fix)
@@ -37,6 +37,8 @@ export default {
    * Removes all existed keys from storage
    */
   clear() {
-    Object.keys(storage).forEach(this.removeItem);
+    Object.keys(storage).forEach(StorageService.remove);
   },
 };
+
+export default StorageService;
