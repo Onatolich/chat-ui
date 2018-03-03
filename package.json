@@ -46,6 +46,7 @@
     "node-sass": "^4.5.3",
     "node-storage-shim": "^1.0.1",
     "react-test-renderer": "^16.2.0",
+    "redux-saga-tester": "^1.0.379",
     "resolve-url-loader": "^2.2.1",
     "sass-loader": "^6.0.6",
     "url-loader": "^0.5.9",
@@ -57,7 +58,7 @@
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/*.js",
-      "!src/redux/*.js",
+      "!src/model/*.js",
       "!src/components/**/index.js",
       "!src/utils/index.js",
       "!src/utils/**/index.js"
