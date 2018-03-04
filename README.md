@@ -20,6 +20,12 @@ To run tests:
 $ npm test
 ```
 
+To run e2e tests:
+```
+$ npm run test:e2e
+```
+Note that application should be started locally
+
 To collect test coverage
 
 To build production artifact:
