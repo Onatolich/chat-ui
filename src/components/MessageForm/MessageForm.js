@@ -43,8 +43,7 @@ export default class MessageForm extends React.PureComponent<Props, State> {
     this.submit();
   }
 
-  onSubmitButtonClick(e: Event) {
-    e.preventDefault();
+  onSubmitButtonClick() {
     this.submit();
   }
 
