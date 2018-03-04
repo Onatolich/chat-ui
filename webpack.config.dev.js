@@ -5,6 +5,11 @@ const baseConfig = require('./webpack.config.base');
 module.exports = {
   ...baseConfig,
 
+  output: {
+    ...baseConfig.output,
+    publicPath: '/',
+  },
+
   plugins: [
     ...baseConfig.plugins,
     new webpack.HotModuleReplacementPlugin(),

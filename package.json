@@ -7,6 +7,7 @@
     "start": "webpack-dev-server --inline --hot --open --config webpack.config.dev.js",
     "lint": "eslint .",
     "flow": "flow status --show-all-errors",
+    "test:e2e": "cypress run --browser chrome",
     "test": "jest --env=jsdom --maxWorkers=4",
     "coverage": "npm run test -- --coverage",
     "build": "rm -rf ./build && webpack -p --config webpack.config.prod.js"
@@ -30,6 +31,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "css-loader": "^0.28.4",
+    "cypress": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
     "eslint": "^4.2.0",
