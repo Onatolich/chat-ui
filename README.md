@@ -26,7 +26,10 @@ $ npm run test:e2e
 ```
 Note that application should be started locally
 
-To collect test coverage
+To collect test coverage:
+```
+$ npm run coverage
+```
 
 To build production artifact:
 ```
