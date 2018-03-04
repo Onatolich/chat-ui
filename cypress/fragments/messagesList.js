@@ -4,4 +4,4 @@ export default function messagesList() {
 
 messagesList.noMessages = () => messagesList().get('.MessagesList__NoMessages');
 messagesList.messages = () => messagesList().get('.Message');
-messagesList.textOfMessage = (message) => message.get('.Message__Text');
+messagesList.textOfMessage = message => message.get('.Message__Text');
