@@ -4,7 +4,8 @@
     "browser": true,
     "node": true,
     "es6": true,
-    "jest": true
+    "jest": true,
+    "cypress/globals": true
   },
   "globals": {
     "window": true
@@ -40,7 +41,8 @@
   "plugins": [
     "react",
     "babel",
-    "flowtype"
+    "flowtype",
+    "cypress"
   ],
   "settings": {
     "import/resolver": {
