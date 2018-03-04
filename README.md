@@ -1,4 +1,4 @@
-Chat UI based on socket communication.
+Chat UI based on socket communication. ([Try it online](https://onatolich.github.io/chat-ui/))
 
 To install dependencies:
 ```
