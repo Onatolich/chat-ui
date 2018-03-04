@@ -13,7 +13,7 @@ type State = {
 };
 
 export default class MessagesList extends React.PureComponent<Props, State> {
-  root: HTMLElement;
+  wrap: HTMLElement;
   content: HTMLElement;
 
   componentDidMount() {
@@ -27,11 +27,11 @@ export default class MessagesList extends React.PureComponent<Props, State> {
   }
 
   scrollToEnd() {
-    if (!this.root || !this.content) {
+    if (!this.wrap || !this.content) {
       return;
     }
 
-    this.root.scrollTop = this.content.clientHeight;
+    this.wrap.scrollTop = this.content.clientHeight;
   }
 
   isOwnMessage(message: MessageT): boolean {
@@ -63,15 +63,17 @@ export default class MessagesList extends React.PureComponent<Props, State> {
 
   render() {
     return (
-      <div
-        className="MessagesList"
-        ref={(root) => { (this: any).root = root; }}
-      >
+      <div className="MessagesList">
         <div
-          className="MessagesList__Content"
-          ref={(content) => { (this: any).content = content; }}
+          className="MessagesList__Wrap"
+          ref={(wrap) => { (this: any).wrap = wrap; }}
         >
-          {this.renderMessagesList()}
+          <div
+            className="MessagesList__Content"
+            ref={(content) => { (this: any).content = content; }}
+          >
+            {this.renderMessagesList()}
+          </div>
         </div>
       </div>
     );

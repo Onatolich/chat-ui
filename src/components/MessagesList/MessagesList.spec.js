@@ -76,16 +76,16 @@ describe('componentDidUpdate method', () => {
 });
 
 describe('scrollToEnd method', () => {
-  test('should set scrollTop attr of root equal to clientHeight attr of content', () => {
+  test('should set scrollTop attr of wrap equal to clientHeight attr of content', () => {
     const messagesList = shallow(<MessagesList {...props} />);
     const instance = messagesList.instance();
-    instance.root = {};
+    instance.wrap = {};
     instance.content = {
       clientHeight: 'clientHeight',
     };
 
     instance.scrollToEnd();
 
-    expect(instance.root.scrollTop).toEqual(instance.content.clientHeight);
+    expect(instance.wrap.scrollTop).toEqual(instance.content.clientHeight);
   });
 });
