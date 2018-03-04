@@ -1,0 +1,49 @@
+Application consists of components, model, services and utils.
+Everything wires up and renders to DOM in /src/index.js
+
+## components:
+Contains presentational components.
+Each component has own folder which contains everything its need (except other components):
+1. React component file (file name is equal to component name)
+2. Styles file with the same name as a component (BEM methodology is used)
+3. Spec file (checks component behavior and if all necessary parts are rendered)
+4. index.js either exports component as is or wrapped in redux container if applicable
+5. Any other component-related assets
+
+Ways to improve:
+- Use PostCSS and CSSModules for styles
+- Add styles reusable variables
+
+## model:
+Contains all business logic implemented with redux and redux-saga for side effects.
+- Model is logically split by independent resources
+- Each resource has own folder and consists of:
+    1. Index file (exposes reducer, action creators and action types)
+    2. Actions file (contains action creators and action types)
+    4. Optional sagas file (contains any side effects, async actions, api communications etc.)
+    5. Spec files (business logic unit tests)
+- Model index exposes list of all reducers which contains all possible action creators and action types
+- Containers should import model and access actions via appropriate reducers and should not know anything else about the model
+- Model has store file which creates and exposes redux store with all necessary middleware
+
+Ways to improve:
+- Add selectors for each model that should be used in mapStateToProps of redux containers
+  so components won't know anything (and will be independent from it) about internal model data structure
+
+## services:
+Contains any services that could be used in application like storage, api, socket etc.
+
+## utils:
+Contains any reusable utils that could be used in application.
+- Every util must be pure function and could use any other util.
+- All utils are grouped by type (string, number, lists, redux, etc.).
+- Every groups should expose map of its utils.
+- Utils index should expose all util groups.
+
+Also there is a config file which is getting config from env variables,
+so it's possible to override config (e.g. for CI/CD).
+For example:
+```
+$ IO_ENDPOINT=http://localhost npm start
+```
+Config defaults are defined in webpack.config.base.js
