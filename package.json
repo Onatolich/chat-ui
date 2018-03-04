@@ -59,7 +59,7 @@
     "webpack-dev-server": "^2.5.1"
   },
   "jest": {
-    "testRegex": ".*spec\\.js$",
+    "testRegex": "src/.*spec\\.js$",
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/*.js",
