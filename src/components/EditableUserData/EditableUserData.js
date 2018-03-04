@@ -32,6 +32,7 @@ export default class EditableUserData extends React.PureComponent<Props> {
 
         <TextField
           hintText="What is your name?"
+          className="EditableUserData__UserName"
           onChange={this.onUserNameChange}
           value={user.name}
           fullWidth
