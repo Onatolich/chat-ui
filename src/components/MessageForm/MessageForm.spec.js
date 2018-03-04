@@ -43,7 +43,7 @@ test('should update message state on TextField change', () => {
   const value = 'value';
   instance.setState = jest.fn();
   messageForm.find('TextField').simulate('change', {
-    currentTarget: { value }
+    currentTarget: { value },
   });
   expect(instance.setState).toHaveBeenCalledWith({ message: value });
 });

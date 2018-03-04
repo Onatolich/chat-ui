@@ -38,7 +38,7 @@ test('should perform onUserNameChange prop with new value on TextField change', 
   const value = 'value';
   const editableUserData = shallow(<EditableUserData {...props} />);
   editableUserData.find('TextField').simulate('change', {
-    currentTarget: { value }
+    currentTarget: { value },
   });
 
   expect(props.onUserNameChange).toHaveBeenCalledWith(value);
