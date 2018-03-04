@@ -9,7 +9,7 @@
     "flow": "flow status --show-all-errors",
     "test": "jest --env=jsdom --maxWorkers=4",
     "coverage": "npm run test -- --coverage",
-    "build": "webpack -p --config webpack.config.prod.js"
+    "build": "rm -rf ./build && webpack -p --config webpack.config.prod.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
