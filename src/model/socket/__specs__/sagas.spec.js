@@ -1,19 +1,19 @@
-import io from 'socket.io-client';
 import SagaTester from 'redux-saga-tester';
 import SocketMock from 'socket-io-mock';
 import config from '../../../config';
+import * as SocketService from '../../../services/SocketService';
 import actions, { actionTypes } from '../actions';
 import messages from '../../messages';
 import sagas from '../sagas';
 
-const connectBuffer = io.connect;
+const SocketServiceBuffer = SocketService.default;
 let state;
 let sagaTester;
 let socket;
 
 beforeEach(async () => {
   socket = new SocketMock();
-  io.connect = jest.fn().mockReturnValue(socket.socketClient);
+  SocketService.default = socket.socketClient;
 
   state = {
     user: {
@@ -28,11 +28,7 @@ beforeEach(async () => {
 });
 
 afterAll(() => {
-  io.connect = connectBuffer;
-});
-
-test('should create socket with correct uri', async () => {
-  expect(io.connect).toHaveBeenCalledWith(config.IO_ENDPOINT);
+  SocketService.default = SocketServiceBuffer;
 });
 
 test('should perform CONNECTED action on socket connect', async () => {

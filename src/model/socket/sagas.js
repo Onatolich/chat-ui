@@ -1,4 +1,3 @@
-import io from 'socket.io-client';
 import { eventChannel } from 'redux-saga';
 import {
   put,
@@ -8,20 +7,17 @@ import {
   select,
 } from 'redux-saga/effects';
 import config from '../../config';
+import SocketService from '../../services/SocketService';
 import actions, { actionTypes } from './actions';
 import messagesActions from '../messages/actions';
 
-let socket;
-
 function createSocketChannel() {
-  socket = io.connect(config.IO_ENDPOINT);
-
   return eventChannel((emitter) => {
-    socket.on('connect', () => {
+    SocketService.on('connect', () => {
       emitter(actions.connected());
     });
 
-    socket.on(config.IO_CHAT_EVENT, (payload) => {
+    SocketService.on(config.IO_CHAT_EVENT, (payload) => {
       if (!payload || !payload.message) {
         return;
       }
@@ -29,7 +25,7 @@ function createSocketChannel() {
       emitter(messagesActions.pushMessage(payload));
     });
 
-    socket.on('disconnect', () => {
+    SocketService.on('disconnect', () => {
       emitter(actions.disconnected());
     });
 
@@ -40,7 +36,7 @@ function createSocketChannel() {
 function* sendMessage({ payload }) {
   const user = yield select(state => state.user);
 
-  socket.emit(config.IO_CHAT_EVENT, {
+  SocketService.emit(config.IO_CHAT_EVENT, {
     avatar: user.avatar,
     username: user.name,
     message: payload,
