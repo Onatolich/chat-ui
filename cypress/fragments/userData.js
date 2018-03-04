@@ -3,4 +3,4 @@ export default function userData() {
 }
 
 userData.avatar = () => userData().get('.EditableUserData__Avatar');
-userData.nameField = () => userData().get('.EditableUserData__UserName');
+userData.nameField = () => userData().get('.EditableUserData__UserName input');

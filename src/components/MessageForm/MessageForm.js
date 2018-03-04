@@ -66,6 +66,7 @@ export default class MessageForm extends React.PureComponent<Props, State> {
     return (
       <div className="MessageForm">
         <TextField
+          className="MessageForm__MessageField"
           floatingLabelText="Message"
           multiLine={true}
           rowsMax={6}
