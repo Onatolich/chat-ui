@@ -9,7 +9,7 @@ import {
 import config from '../../config';
 import SocketService from '../../services/SocketService';
 import actions, { actionTypes } from './actions';
-import messagesActions from '../messages/actions';
+import messages from '../messages';
 
 function createSocketChannel() {
   return eventChannel((emitter) => {
@@ -22,7 +22,7 @@ function createSocketChannel() {
         return;
       }
 
-      emitter(messagesActions.pushMessage(payload));
+      emitter(messages.actions.pushMessage(payload));
     });
 
     SocketService.on('disconnect', () => {
