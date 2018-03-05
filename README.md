@@ -15,7 +15,7 @@ To check flow types:
 $ npm run flow
 ```
 
-To run tests:
+To run unit tests:
 ```
 $ npm test
 ```
