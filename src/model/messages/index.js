@@ -1,7 +1,7 @@
 /* @flow */
 import actions, { actionTypes } from './actions';
 
-type State = Array<MessageT>;
+type State = MessagesListT;
 
 const {
   PUSH_MESSAGE,
