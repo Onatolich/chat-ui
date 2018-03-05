@@ -37,7 +37,7 @@ Contains any services that could be used in application like storage, api, socke
 Contains any reusable utils that could be used in application.
 - Every util must be pure function and could use any other util.
 - All utils are grouped by type (string, number, lists, redux, etc.).
-- Every groups should expose map of its utils.
+- Every group should expose map of its utils.
 - Utils index should expose all util groups.
 
 Also there is a config file which is getting config from env variables,
